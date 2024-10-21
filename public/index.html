@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../src/css/animation.css" />
+        <link rel="stylesheet" href="../src/css/global.css" />
+        <link rel="stylesheet" href="../src/css/index.css" />
+        <script src="../src/index.js" defer type="module"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container bg-gray rel">
+            <div class="center" id="start-recording-page">
+                <button
+                    class="start-btn col-white bg-light-gray ft-24 center"
+                    id="start-recording"
+                >
+                    Start Recording
+                </button>
+            </div>
+            <div class="start hide center" id="recording-page">
+                <div class="video">
+                    <video
+                        src=""
+                        id="video"
+                        autoplay
+                        muted
+                    ></video>
+                </div>
+                <div class="control">
+                    <button
+                        class="control-btn center round bg-light-gray col-white"
+                        id="mic"
+                    >
+                        <img src="../src/assets/mic.svg" alt="" />
+                    </button>
+                    <button
+                        class="control-btn center round bg-light-gray col-white"
+                        id="cam"
+                    >
+                        <img src="../src/assets/video.svg" alt="" />
+                    </button>
+                    <button
+                        class="control-btn center round bg-light-gray col-white"
+                        id="screen-rec"
+                    >
+                        <img src="../src/assets/screen-rec.svg" alt="" />
+                    </button>
+                    <button
+                        class="control-btn control-btn-oval center bg-red col-white"
+                        id="stop"
+                    >
+                        <img src="../src/assets/stop.svg" alt="" />
+                    </button>
+                </div>
+            </div>
+            <div class="loader-box center-abs hide" id="loader">
+                <span class="loader"></span>
+            </div>
+            <div class="row hide" id="error">
+                <span class="error-text"></span>
+                <a href="" class="link-btn bg-light-gray center">
+                    Reload The Page
+                </a>
+            </div>
+
+            <div class="row hide" id="download">
+                <a href="" class="link-btn bg-light-gray center">
+                    Download Recording
+                </a>
+            </div>
+        </div>
+    </body>
+</html>
