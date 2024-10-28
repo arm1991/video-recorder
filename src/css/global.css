@@ -81,3 +81,10 @@ a {
     color: var(--white);
     text-decoration: none;
 }
+
+.pop-up {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

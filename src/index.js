@@ -1,9 +1,11 @@
 import store from "./js/store.js";
+import { handleRecordingStop } from "./js/controller.js";
 import {
-    handleRecordingStart,
-    handleRecordingStop,
+    handleVideoRecordingStart,
     handleMuteClick,
-} from "./js/controller.js";
+} from "./js/videoRecorderController.js";
+import { handleScreenRecordingStart } from "./js/screenRecordController.js";
+import { getHTMLElementById } from "./js/helpers.js";
 
 const { domElements } = store;
 
@@ -14,11 +16,13 @@ function init({
     stopButton,
     screenRecButton,
 }) {
-    startButton.addEventListener("click", handleRecordingStart);
+    startButton.addEventListener("click", handleVideoRecordingStart);
     micButton.addEventListener("click", (e) => handleMuteClick(e, "audio"));
     camButton.addEventListener("click", (e) => handleMuteClick(e, "video"));
     stopButton.addEventListener("click", handleRecordingStop);
-    screenRecButton.addEventListener("click", () => {});
+    screenRecButton.addEventListener("click", handleScreenRecordingStart);
 }
 
 init(domElements);
+
+getHTMLElementById("x");

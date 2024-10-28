@@ -21,53 +21,141 @@
             </div>
             <div class="start hide center" id="recording-page">
                 <div class="video">
-                    <video
-                        src=""
-                        id="video"
-                        autoplay
-                        muted
-                    ></video>
+                    <div class="screen-video hide" id="screen-rec-box">
+                        <video src="" id="screen" autoplay muted></video>
+                    </div>
+                    <div class="camera-video">
+                        <video src="" id="video" autoplay muted></video>
+                    </div>
                 </div>
                 <div class="control">
                     <button
                         class="control-btn center round bg-light-gray col-white"
                         id="mic"
                     >
-                        <img src="../src/assets/mic.svg" alt="" />
+                        <svg
+                            width="20"
+                            height="30"
+                            viewBox="0 0 20 30"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M9.5 1C8.57174 1 7.6815 1.40638 7.02513 2.12973C6.36875 2.85309 6 3.83416 6 4.85714V15.1429C6 16.1658 6.36875 17.1469 7.02513 17.8703C7.6815 18.5936 8.57174 19 9.5 19C10.4283 19 11.3185 18.5936 11.9749 17.8703C12.6313 17.1469 13 16.1658 13 15.1429V4.85714C13 3.83416 12.6313 2.85309 11.9749 2.12973C11.3185 1.40638 10.4283 1 9.5 1Z"
+                                fill="white"
+                                stroke="white"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                            <path
+                                d="M19 12V14.6667C19 17.142 18.0518 19.516 16.364 21.2663C14.6761 23.0167 12.3869 24 10 24C7.61305 24 5.32387 23.0167 3.63604 21.2663C1.94821 19.516 1 17.142 1 14.6667V12"
+                                stroke="white"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                            <path
+                                d="M10 24V29"
+                                stroke="white"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                            <path
+                                d="M4 29H15"
+                                stroke="white"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
                     </button>
                     <button
                         class="control-btn center round bg-light-gray col-white"
                         id="cam"
                     >
-                        <img src="../src/assets/video.svg" alt="" />
+                        <svg
+                            width="32"
+                            height="21"
+                            viewBox="0 0 32 21"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M31 4L22 11L31 18V4Z"
+                                stroke="white"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                            <path
+                                d="M19.2 1H3.8C2.2536 1 1 2.21523 1 3.71429V17.2857C1 18.7848 2.2536 20 3.8 20H19.2C20.7464 20 22 18.7848 22 17.2857V3.71429C22 2.21523 20.7464 1 19.2 1Z"
+                                stroke="white"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
                     </button>
                     <button
                         class="control-btn center round bg-light-gray col-white"
                         id="screen-rec"
                     >
-                        <img src="../src/assets/screen-rec.svg" alt="" />
+                        <svg
+                            width="34"
+                            height="26"
+                            viewBox="0 0 34 26"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <rect
+                                x="1.5"
+                                y="1.5"
+                                width="31"
+                                height="23"
+                                rx="3.5"
+                                stroke="white"
+                                stroke-width="3"
+                            />
+                            <path
+                                d="M17 17V9"
+                                stroke="white"
+                                stroke-width="3"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                            <path
+                                d="M12 14L17.5 9L23 14"
+                                stroke="white"
+                                stroke-width="3"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
                     </button>
                     <button
                         class="control-btn control-btn-oval center bg-red col-white"
                         id="stop"
                     >
-                        <img src="../src/assets/stop.svg" alt="" />
+                        <img src="./assets/stop.svg" alt="" />
                     </button>
                 </div>
             </div>
             <div class="loader-box center-abs hide" id="loader">
                 <span class="loader"></span>
             </div>
-            <div class="row hide" id="error">
-                <span class="error-text"></span>
-                <a href="" class="link-btn bg-light-gray center">
-                    Reload The Page
-                </a>
-            </div>
-
+            <div class="row hide" id="error"></div>
             <div class="row hide" id="download">
                 <a href="" class="link-btn bg-light-gray center">
                     Download Recording
+                </a>
+                <a
+                    href=""
+                    id="screen-download-btn"
+                    class="link-btn bg-light-gray hide center"
+                >
+                    Download Screen Recording
                 </a>
             </div>
         </div>

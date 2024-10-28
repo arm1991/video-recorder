@@ -17,7 +17,25 @@
 }
 
 .video {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 54px;
+}
+
+.screen-video {
     height: min-content;
+    flex: 2;
+    border: 1px solid var(--white);
+    width: 100%;
+    max-width: 800px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.camera-video {
+    height: min-content;
+    flex: 1;
     border: 1px solid var(--white);
     width: 100%;
     max-width: 800px;
@@ -41,8 +59,14 @@
 }
 
 .control-btn.muted {
-    background-color: var(--red);
-    color: var(--light-gray);
+    background-color: var(--white);
+
+    /* color: var(--light-gray); */
+}
+
+.control-btn.muted > svg > * {
+    stroke: var(--light-gray);
+    /* fill: var(--light-gray); */
 }
 
 .start-btn {
@@ -77,4 +101,50 @@
 .error-text {
     color: var(--red);
     font-size: 48px;
+}
+
+.pop-up-background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.pop-up.error {
+    border-radius: 20px;
+    background-color: var(--white);
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    min-width: 300px;
+    z-index: 999;
+}
+
+.pop-up.error #error-text {
+    font-size: 28px;
+    color: var(--red);
+}
+
+.pop-up.error #pop-up__button {
+    width: 100%;
+    padding: 14px;
+    font-size: 20px;
+    background-color: var(--gray);
+    color: var(--white);
+    text-align: center;
+    filter: brightness(100%);
+    border-radius: 100px;
+}
+
+.pop-up.error #pop-up__button:hover {
+    filter: brightness(140%);
+}
+
+.pop-up.error #pop-up__button:active {
+    filter: brightness(80%);
 }
