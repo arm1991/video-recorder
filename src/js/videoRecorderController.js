@@ -3,9 +3,9 @@ import {
     toggleVisibility,
     handleError,
     setVideo,
-    setDownloadData,
     removeVideo,
     toggleBtnMuted,
+    setDownloadData,
 } from "./ui.js";
 import {
     getUserMediaData,
@@ -28,6 +28,7 @@ export async function handleVideoRecordingStart() {
         toggleVisibility(domElements.recordingPage);
     } catch (err) {
         console.error(err.message);
+
         handleError(domElements, err.message);
     } finally {
         toggleVisibility(domElements.loader);
@@ -64,8 +65,8 @@ export function handleMuteClick(e, type) {
 }
 
 export function handleVideoStopped() {
-    setDownloadData(store, "video");
     store.state.mediaRecorder.stop();
     changeVideoRecStates();
     removeVideo(domElements.video);
+    setDownloadData(store, "video");
 }

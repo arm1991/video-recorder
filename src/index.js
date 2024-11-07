@@ -5,7 +5,6 @@ import {
     handleMuteClick,
 } from "./js/videoRecorderController.js";
 import { handleScreenRecordingStart } from "./js/screenRecordController.js";
-import { getHTMLElementById } from "./js/helpers.js";
 
 const { domElements } = store;
 
@@ -24,5 +23,3 @@ function init({
 }
 
 init(domElements);
-
-getHTMLElementById("x");

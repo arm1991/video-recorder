@@ -49,11 +49,6 @@ export function setDisplayData(data) {
     });
 }
 
-export function getHTMLElementById(id) {
-    const element = document.getElementById(id);
-    return element ? element : "does not exist";
-}
-
 export function startVideoRecording() {
     const { mediaRecorder } = store.state;
 
@@ -76,12 +71,16 @@ export function startScreenRecording() {
     displayRecorder.start(1000);
 }
 
-export function getDownLoadLink(domElements, type) {
-    if (type === "screenRecord") {
-        return domElements.downloadBox.children[1];
-    } else if (type === "video") {
-        return domElements.downloadBox.children[0];
-    }
+export function getDownLoadLink({ downloadBox }, type) {
+    if (type === "screenRecord") return downloadBox.children[1];
+    if (type === "video") return downloadBox.children[0];
+
+    return null;
+}
+
+export function getRecordedData(state, type) {
+    if (type === "screenRecord") return state.recordedScreenData;
+    if (type === "video") return state.recordedVideoData;
 
     return null;
 }

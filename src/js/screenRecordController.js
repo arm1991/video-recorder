@@ -30,7 +30,7 @@ export async function handleScreenRecordingStart(e) {
 
     try {
         const data = await getUserDisplayData();
-        store.state.wasRecorded = true;
+        store.state.wasScreenRecorded = true;
         setDisplayData(data);
         startScreenRecording(domElements, data);
         changeScreenRecState();
@@ -42,6 +42,7 @@ export async function handleScreenRecordingStart(e) {
         setScreenRecStop(data);
     } catch (err) {
         console.error(`Error: ${err.message}`);
+
         handleError(domElements, err.message, "screenRecord");
     }
 }

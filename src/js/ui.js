@@ -1,9 +1,9 @@
-import { getDownLoadLink } from "./helpers.js";
+import { getDownLoadLink, getRecordedData } from "./helpers.js";
 
 export function handleError({ error }, message, type) {
     error.innerHTML = getErrorInnerHTML(message, type);
     toggleVisibility(error);
-    setErrorEvents();
+    setErrorEvents(error);
 }
 
 export function toggleVisibility(component) {
@@ -29,7 +29,7 @@ export function removeVideo(video) {
 
 export function setDownloadData({ state, domElements }, type) {
     const video_local = URL.createObjectURL(
-        new Blob(state.recordedVideoData, { type: "video/webm" })
+        new Blob(getRecordedData(state, type), { type: "video/webm" })
     );
 
     const downloadLink = getDownLoadLink(domElements, type);
@@ -53,20 +53,24 @@ function getErrorInnerHTML(text, type) {
             </div>
         </div>
     `;
-    return type === "screenRecord" ? popUp : reloadButton + popUp;
+
+    if (type === "screenRecord" || type === "download") return popUp;
+    return reloadButton + popUp;
 }
 
-function setErrorEvents() {
+function setErrorEvents(error) {
     const button = document.getElementById("pop-up__button");
     const background = document.getElementById("pop-up-background");
 
-    if (button) button.addEventListener("click", hideError);
-    if (background) background.addEventListener("click", hideError);
+    if (button) button.addEventListener("click", (e) => hideError(e, error));
+    if (background)
+        background.addEventListener("click", (e) => hideError(e, error));
 }
 
-function hideError(e) {
+function hideError(e, error) {
     const id = e.target.id;
     if (id === "pop-up-background" || id === "pop-up__button") {
+        toggleVisibility(error);
         e.target.closest("#pop-up-background").remove();
     }
 }

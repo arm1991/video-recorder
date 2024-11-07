@@ -26,7 +26,8 @@ const store = {
         screenRec: false,
         mic: false,
         video: false,
-        wasRecorded: false,
+        wasScreenRecorded: false,
+        downloading: false,
     },
 };
 
